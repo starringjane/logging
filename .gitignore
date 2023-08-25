@@ -1,0 +1,14 @@
+/node_modules
+/vendor
+.phpunit.result.cache
+.phpunit.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+cypress.env.json
+.php-cs-fixer.cache
+deploy.log
+/.fleet
+/.idea
+/.vscode

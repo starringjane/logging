@@ -1,0 +1,40 @@
+{
+    "name": "starring-jane/logging",
+    "description": "Logging made for use inside laravel apps",
+    "autoload": {
+        "psr-4": {
+            "StarringJane\\Logging\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Verschoore",
+            "email": "brian@starringjane.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.1",
+        "laravel-notification-channels/microsoft-teams": "^1.1",
+        "illuminate/support": "^10.0",
+        "monolog/monolog": "^3.4"
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.16"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "StarringJane\\Logging\\LoggingServiceProvider",
+                "NotificationChannels\\MicrosoftTeams\\MicrosoftTeamsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
