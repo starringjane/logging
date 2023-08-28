@@ -21,7 +21,7 @@ LOGGLY_TAG=
 ```
 When one or multiple of these variables are not set, the corresponding logging channel will not be used.
 
-Finaly all you need to do is add the following line to your config/logging.php file and enable the channel in stack channels or as a single channel:  
+Finally, all you need to do is add the following line to your config/logging.php file and enable the channel in stack channels or as a single channel:  
 ```php
 'channels' => [
     ...
