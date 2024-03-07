@@ -6,7 +6,7 @@
 ## Installation
 Run the composer install command to install the package
 ```bash
-composer require starringjane/logging
+composer require starring-jane/logging
 ```
 ## Configuration
 Optionally you can publish the config file with:
