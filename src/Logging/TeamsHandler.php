@@ -16,7 +16,7 @@ class TeamsHandler extends AbstractProcessingHandler
         parent::__construct($level);
     }
 
-    protected function write(LogRecord $record): void
+    protected function write(array $record): void
     {
         $route = config('sj-logging.teams.webhook_url');
         if (empty($route)) {
@@ -24,7 +24,7 @@ class TeamsHandler extends AbstractProcessingHandler
         }
 
         Notification::route(MicrosoftTeamsChannel::class, $route)
-            ->notify(new TeamsErrorNotification($record->context['exception'], $route))
+            ->notify(new TeamsErrorNotification($record['formatted'], $route))
         ;
     }
 }
