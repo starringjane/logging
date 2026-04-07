@@ -5,6 +5,8 @@ namespace StarringJane\Logging\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Str;
+use NotificationChannels\MicrosoftTeams\ContentBlocks\TextBlock;
+use NotificationChannels\MicrosoftTeams\MicrosoftTeamsAdaptiveCard;
 use NotificationChannels\MicrosoftTeams\MicrosoftTeamsChannel;
 use NotificationChannels\MicrosoftTeams\MicrosoftTeamsMessage;
 
@@ -28,11 +30,14 @@ class TeamsErrorNotification extends Notification
 
     public function toMicrosoftTeams()
     {
-        return MicrosoftTeamsMessage::create()
-                ->to($this->route)
-                ->type('error')
-                ->title($this->exception->getMessage())
-                ->content(Str::Markdown('```' . PHP_EOL . $this->exception->getTraceAsString()) )
-        ;
+        return MicrosoftTeamsAdaptiveCard::create()
+            ->to($this->route)
+            ->title($this->exception->getMessage())
+            ->content([
+                TextBlock::create()
+                    ->setText(Str::Markdown('```' . PHP_EOL . $this->exception->getTraceAsString()))
+                    ->setWeight('Bolder')
+                    ->setSize('Large'),
+            ]);
     }
 }
